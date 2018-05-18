@@ -17,3 +17,22 @@ summaryConsole.log('Hi!')
 summaryConsole.error('same usage as log but to stderr')
 summaryConsole.setInterval(5e3) // more frequent
 ```
+
+## debounceConsole
+
+```
+debounceConsole.log(msg, timeout, ...more)
+```
+
+Debounces the log()s by the first param `msg`. If only one call is made, will output `...more`. Otherwise will output the repeat count.
+
+```js
+const {debounceConsole} = require('pauls-log-utils')
+
+debounceConsole.log('Hi!', 500)
+debounceConsole.log('Hi!', 500)
+debounceConsole.log('Hi!', 500)
+// in 30s will output "Hi! (3x)"
+
+debounceConsole.error('same usage as log but to stderr', 500)
+```
